@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import "./assets/css/App.css";
+import './assets/css/index.css'
 
 function App() {
   const [input, setInput] = useState("");
@@ -25,11 +25,12 @@ function App() {
   });
 
   return (
-    <div className="wrapper">
+    <div className="container mr-5 pl-5  mt-5">
+       <div className="wrapper mt-5 pb-5">
       {" "}
-      <div className="show-input">{input}</div>
-      <div className="digits flex">{calcBtns}</div>
-      <div className="modifiers subgrid">
+      <div className="show-input pl-5 mb-3 ml-5">{input}</div>
+      <div className="digits flex pl-5 pb-5">{calcBtns}</div>
+      <div className="modifiers subgrid pl-5">
         {/* clear button */}
 
         <button onClick={() => setInput(input.substr(0, input.length - 1))}>
@@ -41,29 +42,29 @@ function App() {
           AC
         </button>
       </div>
-      <div className="operations subgrid">
+      <div className="operations subgrid pb-5 rounded">
         {/* add button */}
-        <button onClick={e => setInput(input + e.target.value)} value="+">
+        <button id="add" onClick={e => setInput(input + e.target.value)} value="+">
           +
         </button>
 
         {/* minus btn */}
-        <button onClick={e => setInput(input + e.target.value)} value="-">
+        <button id="subtract" onClick={e => setInput(input + e.target.value)} value="-">
           {" "}
           -{" "}
         </button>
 
-        <button onClick={e => setInput(input + e.target.value)} value="*">
+        <button id="multiply" onClick={e => setInput(input + e.target.value)} value="*">
           {" "}
           *
         </button>
 
-        <button onClick={e => setInput(input + e.target.value)} value="/">
+        <button id="divide" onClick={e => setInput(input + e.target.value)} value="/">
           {" "}
           /
         </button>
         {/* "=" btn */}
-        <button
+        <button id="equals"
           onClick={e => {
             try {
               setInput(
@@ -82,6 +83,8 @@ function App() {
         </button>
       </div>
     </div>
+    </div>
+   
   );
 }
 const rootElement = document.getElementById("root");
